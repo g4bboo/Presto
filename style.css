@@ -50,6 +50,7 @@ a {
 .btn-custom {
     background: var(--main);
     color: white;
+    font-size: 13px;
     border: 2px solid transparent;
     padding: 10px 20px;
     margin-top: 20px;
@@ -63,13 +64,18 @@ a {
 }
 
 .pre-about {
-    height: 80vh;
+    height: 75vh;
     width: 100vw;
-    background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url('img/about.jpg');
+    background-color: var(--lightGray);
     background-size: cover;
 }
 
-.card {
+.pre-about .card {
     background-color: rgba(75, 2, 214, 0.8);
     color: white;
+}
+
+.pre-about .card .btn-custom:hover {
+    color: white;
+    border-color: white;
 }
