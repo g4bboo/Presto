@@ -1,5 +1,10 @@
 * {
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+p {
+    font-weight: 300;
 }
 
 :root {
@@ -16,6 +21,7 @@ a {
 .p-navbar {
     background-color: transparent;
     transition: all .5s;
+    z-index: 99;
 }
 
 .p-navbar.active {
@@ -54,4 +60,16 @@ a {
     border: 2px solid var(--main);
     background: transparent;
     color: var(--main);
+}
+
+.pre-about {
+    height: 80vh;
+    width: 100vw;
+    background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url('img/about.jpg');
+    background-size: cover;
+}
+
+.card {
+    background-color: rgba(75, 2, 214, 0.8);
+    color: white;
 }
