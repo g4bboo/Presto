@@ -14,11 +14,14 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="media.css">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <title>Presto.it</title>
   </head>
@@ -57,15 +60,17 @@
       </nav>
 
       <!-- HEADER -->
-      <div class="container-fluid masthead">
-          <div class="row align-items-center h-100">
-              <div class="col-12">
-                  <h1 class="text-white display-2">Presto, il miglior sito per i tuoi affari.</h1>
-                  <button class="btn-gradient">Inserisci un annuncio</button>
+      <div class="container-md container-fluid masthead">
+          <div class="row h-100 align-items-center justify-content-center">
+              <div class="col-md-8 col-12">
+                  <h1 class="text-dark"><span class="display-1 fw-bolder">Presto</span>,<br> il miglior sito per i tuoi affari.</h1>
+                  <button class="btn-custom">Inserisci un annuncio</button>
+              </div>
+              <div class="col-md-4 col-12 col-image" data-aos="fade-left" data-aos-duration="1000">
+                  <img class="img-fluid rounded shadow" src="img/header-smart.jpg" alt="header">
               </div>
           </div>
       </div>
-
 
    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -73,6 +78,10 @@
 
     <!-- Font Awesome JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 
     <!-- MY SCRIPT-->
     <script src="./script.js"></script>

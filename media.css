@@ -2,7 +2,27 @@
     .masthead {
         height: 100vh;
         width: 100vw;
-        background: linear-gradient(rgba(0,0,0,0.5),transparent), url('img/header-smart.jpg');
+        background: linear-gradient(rgba(0,0,0,0.7),transparent), url('img/header-smart.jpg');
         background-size: cover;
+    }
+
+    .masthead h1 {
+        color: white!important;
+        text-align: center;
+    }
+
+    .btn-custom {
+        display: block;
+        margin: 20px auto;
+    }
+
+    .btn-custom:hover {
+        border: 2px solid var(--main);
+        background: var(--main);
+        color: white;
+    }
+
+    .col-image {
+        display: none;
     }
 } 
