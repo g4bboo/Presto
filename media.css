@@ -1,0 +1,8 @@
+@media only screen and (max-width: 768px) {
+    .masthead {
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(rgba(0,0,0,0.5),transparent), url('img/header-smart.jpg');
+        background-size: cover;
+    }
+} 
