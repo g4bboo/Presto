@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+.tc-main {
+    color: var(--main);
+}
+
 .p-navbar {
     background-color: transparent;
     transition: all .5s;
@@ -66,17 +70,20 @@ a {
     color: var(--main);
 }
 
-.pre-about {
-    height: 80vh;
-    width: 100vw;
-    background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url('img/about.jpg');
+
+
+.categories {
+    padding: 180px 0;
+    background-color: var(--lightGray);
     background-size: cover;
 }
 
-.card {
+.categories .card {
+
     background-color: rgba(75, 2, 214, 0.8);
     color: white;
 }
+
 
 
 .site-footer
@@ -241,4 +248,9 @@ a {
     margin-right:0;
     font-weight:600
   }
+}
+.categories .card .btn-custom:hover {
+    color: white;
+    border-color: white;
+
 }
