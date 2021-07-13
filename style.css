@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+.tc-main {
+    color: var(--main);
+}
+
 .p-navbar {
     background-color: transparent;
     transition: all .5s;
@@ -64,8 +68,7 @@ a {
 }
 
 .pre-about {
-    height: 75vh;
-    width: 100vw;
+    padding: 180px 0;
     background-color: var(--lightGray);
     background-size: cover;
 }

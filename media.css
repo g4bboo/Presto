@@ -28,12 +28,8 @@
 } 
 
 @media only screen and (max-width: 992px) {
-    .pre-about {
-        height: auto;
-        padding: 100px 0;
-    }
 
-    .pre-about .card {
-        margin: 10px auto;
+    .pre-about {
+        padding: 100px 0;
     }
 }
