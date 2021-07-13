@@ -67,18 +67,18 @@ a {
     color: var(--main);
 }
 
-.pre-about {
+.categories {
     padding: 180px 0;
     background-color: var(--lightGray);
     background-size: cover;
 }
 
-.pre-about .card {
+.categories .card {
     background-color: rgba(75, 2, 214, 0.8);
     color: white;
 }
 
-.pre-about .card .btn-custom:hover {
+.categories .card .btn-custom:hover {
     color: white;
     border-color: white;
 }
