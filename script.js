@@ -37,3 +37,8 @@ categories.forEach( category => {
 
 });
 
+//animazione button
+const navbarToggler = document.querySelector('.navbar-toggler')
+navbarToggler.addEventListener('click', function(){
+(navbarToggler.children[0].classList.toggle('fa-rotate-90'))
+})
