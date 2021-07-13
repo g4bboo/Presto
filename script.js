@@ -8,6 +8,7 @@ document.addEventListener('scroll', function() {
 });
 
 
+// CATEGORIE //
 let categories = [
     { 'nome' : 'Market' , 'icon' : 'fas fa-handshake'},
     { 'nome' : 'Immobili' , 'icon' : 'fas fa-home'},
@@ -37,8 +38,10 @@ categories.forEach( category => {
 
 });
 
+
 //animazione button
 const navbarToggler = document.querySelector('.navbar-toggler')
 navbarToggler.addEventListener('click', function(){
 (navbarToggler.children[0].classList.toggle('fa-rotate-90'))
 })
+

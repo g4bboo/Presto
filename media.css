@@ -36,3 +36,9 @@
 
     }
 }
+
+@media only screen and (max-width: 580px) {
+    .glide__slide {
+        padding: 0 10px;
+    }
+}
