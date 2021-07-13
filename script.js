@@ -8,6 +8,7 @@ document.addEventListener('scroll', function() {
 });
 
 
+// CATEGORIE //
 let categories = [
     { 'nome' : 'Market' , 'icon' : 'fas fa-handshake'},
     { 'nome' : 'Immobili' , 'icon' : 'fas fa-home'},
@@ -36,4 +37,3 @@ categories.forEach( category => {
     categoryWrapper.appendChild(card);
 
 });
-

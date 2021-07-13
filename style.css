@@ -22,6 +22,10 @@ a {
     color: var(--main);
 }
 
+.tc-sec {
+    color: var(--sec);
+}
+
 .p-navbar {
     background-color: transparent;
     transition: all .5s;
@@ -259,4 +263,28 @@ a {
     color: white;
     border-color: white;
 
+}
+
+.annunci {
+    padding: 180px 0;
+}
+
+.btn-heart {
+    border: none;
+    background-color: transparent;
+}
+
+.btn-custom-sec {
+    background: var(--sec);
+    color: white;
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 0;
+    transition: all .3s ease-in-out;
+}
+
+.btn-custom-sec:hover {
+    border: 2px solid var(--sec);
+    background: transparent;
+    color: var(--sec);
 }
