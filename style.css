@@ -70,7 +70,6 @@ a {
 }
 
 .masthead {
-    height: 100vh;
     width: 100vw;
 }
 
@@ -345,4 +344,33 @@ a {
     border: 2px solid var(--sec);
     background: transparent;
     color: var(--sec);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: white;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  border-color: transparent;
+  outline: 0;
+  box-shadow: none;
+}
+
+.card-ad .card-body .card-title .tooltip-ad {
+  position: absolute;
+  display: block;
+  top: -40px;
+  left: 0;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.card-ad .card-body .card-title:hover .tooltip-ad {
+  opacity: 1;
 }

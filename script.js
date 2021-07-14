@@ -18,25 +18,28 @@ let categories = [
 
 const categoryWrapper = document.querySelector('#category-wrapper');
 
-categories.forEach( category => {
+if(categoryWrapper){
+    categories.forEach( category => {
 
-    let card = document.createElement('div');
-    card.classList.add('col-xl-3' , 'col-lg-6' , 'col-12');
-
-    card.innerHTML = 
-    `  
-    <div class="card p-5 shadow my-2">
-        <div class="card-body text-center">
-            <h5><i class="${category.icon}"></i> ${category.nome}</h5>
-            <button class="btn-custom">Cerca in ${category.nome}</button>
+        let card = document.createElement('div');
+        card.classList.add('col-xl-3' , 'col-lg-6' , 'col-12');
+    
+        card.innerHTML = 
+        `  
+        <div class="card p-5 shadow my-2">
+            <div class="card-body text-center">
+                <h5><i class="${category.icon}"></i> ${category.nome}</h5>
+                <button class="btn-custom">Cerca in ${category.nome}</button>
+            </div>
         </div>
-    </div>
+    
+        `;
+    
+        categoryWrapper.appendChild(card);
+    
+    });
+}
 
-    `;
-
-    categoryWrapper.appendChild(card);
-
-});
 
 
 //animazione button
@@ -45,3 +48,12 @@ navbarToggler.addEventListener('click', function(){
 (navbarToggler.children[0].classList.toggle('fa-rotate-90'))
 })
 
+//animazione cuore
+let favs = document.querySelectorAll('.btn-heart');
+
+        favs.forEach( fav => {
+            fav.addEventListener('click', function () {
+                fav.children[0].classList.toggle('fas');
+                fav.children[0].classList.toggle('far');
+            })
+        })
