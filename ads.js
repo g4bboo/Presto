@@ -17,8 +17,10 @@ fetch('./annunci.json')
         })
     }
 
-    function populateAds() {
+    function populateAds(data) {
         const adsWrapper = document.querySelector('#ads-wrapper');
+
+        adsWrapper.innerHTML = ''
 
         data.forEach( ad => {
             let div = document.createElement('div');
@@ -46,10 +48,57 @@ fetch('./annunci.json')
             </div>
             `;
             adsWrapper.appendChild(div);
-        });
+            
+        })
+
         favs();
     }
 
-    populateAds();
-    
+    function populateCategoriesFilter(){
+        let categories = new Set (data.map(ad => ad.category))
+        const wrapper = document.querySelector('#filters-category-wrapper')
+        categories.forEach(cat => {
+            let div = document.createElement('div')
+
+            div.classList.add('form-check')
+
+            div.innerHTML =
+            `
+            
+            <input class="form-check-input category-filter" type="checkbox" value="${cat}" id="category-${cat}">
+            <label class="form-check-label" for="category-${cat}">
+              ${cat}
+            </label>
+            
+            `
+            wrapper.appendChild(div)
+        })
+    }
+
+    function filterByCategory() {
+        let input = document.querySelectorAll('.category-filter')
+
+        input.forEach(el => {
+            el.addEventListener('input', function (){
+               
+                let checked = Array.from(input).filter(el => el.checked).map(el => el.value)
+
+                if(checked.length === 0){
+                    populateAds(data);
+                }else {
+                    let filtered = data.filter(ad => checked.includes(ad.category) )
+                
+                    populateAds(filtered);
+
+                }
+                
+            })
+        })
+
+    }
+
+
+    populateAds(data);
+    populateCategoriesFilter();
+    filterByCategory();
 })
