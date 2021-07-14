@@ -97,8 +97,36 @@ fetch('./annunci.json')
 
     }
 
+    function populatePriceFilter() {
+        const inputMax = document.querySelector('#max-input');
+        const labelMax = document.querySelector('#max-label');
+
+        let sorted = data.sort( (a,b) => Number(a.price) - Number(b.price));
+        let max = sorted[sorted.length - 1].price;
+
+        labelMax.innerHTML = max + ' €';
+        inputMax.max = max;
+        inputMax.value = max;
+
+    }
+
+    function filterByPrice(){
+        const inputMax = document.querySelector('#max-input');
+
+        inputMax.addEventListener('input', function () {
+            const labelMax = document.querySelector('#max-label');
+
+            labelMax.innerHTML = inputMax.value + ' €';
+
+            let filtered = data.filter( ad => ad.price < Number(inputMax.value) && ad.price > 0);
+
+            populateAds(filtered);
+        })
+    }
 
     populateAds(data);
+    populatePriceFilter();
     populateCategoriesFilter();
     filterByCategory();
+    filterByPrice();
 })

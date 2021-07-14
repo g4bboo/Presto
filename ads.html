@@ -67,14 +67,11 @@
       </nav>
 
       <!-- HEADER -->
-      <div class="container-md container-fluid masthead vh-50 pt-5">
+      <div class="container-fluid masthead-ad pt-5 text-center">
           <div class="row h-100 align-items-center justify-content-center py-5">
-              <div class="col-md-8 col-12">
-                  <h1 class="text-dark"><span class="display-1 fw-bolder">Presto</span>,<br> il miglior sito per i tuoi affari.</h1>
-                  <button class="btn-custom">Inserisci un annuncio</button>
-              </div>
-              <div class="col-md-4 col-12 col-image" data-aos="fade-left" data-aos-duration="1000">
-                  <img class="img-fluid rounded shadow" src="img/header-ads.jpg" alt="header">
+              <div class="col-12">
+                  <h1 class="text-light"><span class="display-1 fw-bolder">Presto</span>,<br> il miglior sito per i tuoi affari.</h1>
+                  <button class="btn-custom-ad">Inserisci un annuncio</button>
               </div>
           </div>
       </div>
@@ -92,12 +89,6 @@
                       </h2>
                       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body" id="filters-category-wrapper">
-                         <!--  <div class="form-check">
-                            <input class="form-check-input category-filter" type="checkbox" value="" id="category-all">
-                            <label class="form-check-label" for="category-all" checked>
-                              Tutte le categorie
-                            </label>
-                          </div> -->
                           
                         </div>
                       </div>
@@ -105,12 +96,13 @@
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Accordion Item #2
+                          Filtra per prezzo
                         </button>
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                          
+                          <label for="customRange2" class="form-label d-flex justify-content-between"><span id="min-label">0</span><span id="max-label"></span></label>
+                          <input id="max-input" type="range" class="form-range" id="customRange2">
                         </div>
                       </div>
                     </div>

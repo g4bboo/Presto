@@ -21,6 +21,10 @@ a {
 .tc-main {
     color: var(--main);
 }
+
+.bg-main {
+  background-color: var(--main);
+}
 .tc-lightgray {
   color: var(--lightGray);
 }
@@ -31,7 +35,7 @@ a {
 }
 
 .p-navbar {
-    background-color: transparent;
+    background-color: white;
     transition: all .5s;
     z-index: 99;
     padding-top: 8px;
@@ -73,6 +77,12 @@ a {
     width: 100vw;
 }
 
+.masthead-ad {
+  height: 75vh;
+  background: linear-gradient( rgba(75,0,214,0.9), rgba(75,0,214,0.9)), url('./img/header-ad.jpg');
+  background-size: cover;
+}
+
 .btn-custom {
     background: var(--main);
     color: white;
@@ -80,6 +90,21 @@ a {
     padding: 10px 20px;
     margin-top: 20px;
     transition: all .3s ease-in-out;
+}
+
+.btn-custom-ad {
+  background: var(--sec);
+  color: white;
+  border: 2px solid transparent;
+  padding: 10px 20px;
+  margin-top: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.btn-custom-ad:hover {
+  border: 2px solid var(--sec);
+  background: transparent;
+  color: var(--sec);
 }
 
 .btn-custom:hover {
