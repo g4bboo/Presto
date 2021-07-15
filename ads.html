@@ -82,12 +82,59 @@
               <div class="col-12 col-md-4 col-lg-3">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingZero">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                          Ordina
+                        </button>
+                      </h2>
+                      <div id="collapseZero" class="accordion-collapse collapse show" aria-labelledby="headingZero" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" id="filters-order-wrapper">
+                          <div class="form-check">
+                            <input class="form-check-input order-input" type="radio" value="1" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Per data meno recente
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input order-input" type="radio" value="2" name="flexRadioDefault" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Per data più recente
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input order-input" type="radio" value="3" name="flexRadioDefault" id="flexRadioDefault3">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                              Per prezzo crescente
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input order-input" type="radio" value="4" name="flexRadioDefault" id="flexRadioDefault4">
+                            <label class="form-check-label" for="flexRadioDefault4">
+                              Per prezzo decrescente
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input order-input" type="radio" value="5" name="flexRadioDefault" id="flexRadioDefault5">
+                            <label class="form-check-label" for="flexRadioDefault5">
+                              Per nome crescente
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input order-input" type="radio" value="6" name="flexRadioDefault" id="flexRadioDefault6">
+                            <label class="form-check-label" for="flexRadioDefault6">
+                              Per nome decrescente
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           Filtra per categoria
                         </button>
                       </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body" id="filters-category-wrapper">
                           
                         </div>

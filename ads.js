@@ -96,8 +96,6 @@ fetch('./annunci.json')
         labelMax.innerHTML = `${max} €`;
         inputMax.max = max;
         inputMax.value = max;
-
-        console.log(max);
     }
 
     function filterByPrice(){
@@ -133,6 +131,7 @@ fetch('./annunci.json')
             .filter( ad => ad.price <= Number(inputMax.value) + 1 && ad.price > 0)
 
             populateAds(globalFiltered);
+            order();
         }else {
             globalFiltered = data
             .filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()))
@@ -140,10 +139,119 @@ fetch('./annunci.json')
             .filter(ad => checked.includes(ad.category))
             
             populateAds(globalFiltered);
+            order();
         }
 
     }
 
+    function order() {
+        let orderInput = document.querySelectorAll('.order-input');
+
+        let selected = Array.from(orderInput).find( el => el.checked).value;
+    
+                switch (selected) {
+                    case '1':
+                        globalFiltered.sort( (a,b) => a.id - b.id);
+                        populateAds(globalFiltered);
+                        break;
+                    case '2':
+                        globalFiltered.sort( (a,b) => b.id - a.id);
+                        populateAds(globalFiltered);
+                        break;
+                    case '3':
+                        globalFiltered.sort( (a,b) => Number(a.price) - Number(b.price));
+                        populateAds(globalFiltered);
+                        break;
+                    case '4':
+                        globalFiltered.sort( (a,b) => Number(b.price) - Number(a.price));
+                        populateAds(globalFiltered);
+                        break;
+                    case '5':
+                        globalFiltered.sort( (a,b) => {
+                        let nameA = a.name.toUpperCase();
+                        let nameB = b.name.toUpperCase();
+                        if (nameA < nameB) {
+                            return -1;
+                        }
+                        if (nameA > nameB) {
+                            return 1;
+                        }
+                        return 0;
+                        })
+                        populateAds(globalFiltered);
+                        break;
+                    case '6':
+                        globalFiltered.sort( (a,b) => {
+                        let nameA = a.name.toUpperCase();
+                        let nameB = b.name.toUpperCase();
+                        if (nameA < nameB) {
+                            return 1;
+                        }
+                        if (nameA > nameB) {
+                            return -1;
+                        }
+                        return 0;
+                        })
+                        populateAds(globalFiltered);
+                        break;
+                }
+        
+        orderInput.forEach( input => {
+            input.addEventListener('input', function () {
+                let selected = Array.from(orderInput).find( el => el.checked).value;
+    
+                switch (selected) {
+                    case '1':
+                        globalFiltered.sort( (a,b) => a.id - b.id);
+                        populateAds(globalFiltered);
+                        break;
+                    case '2':
+                        globalFiltered.sort( (a,b) => b.id - a.id);
+                        populateAds(globalFiltered);
+                        break;
+                    case '3':
+                        globalFiltered.sort( (a,b) => Number(a.price) - Number(b.price));
+                        populateAds(globalFiltered);
+                        break;
+                    case '4':
+                        globalFiltered.sort( (a,b) => Number(b.price) - Number(a.price));
+                        populateAds(globalFiltered);
+                        break;
+                    case '5':
+                        globalFiltered.sort( (a,b) => {
+                        let nameA = a.name.toUpperCase();
+                        let nameB = b.name.toUpperCase();
+                        if (nameA < nameB) {
+                            return -1;
+                        }
+                        if (nameA > nameB) {
+                            return 1;
+                        }
+                        return 0;
+                        })
+                        populateAds(globalFiltered);
+                        break;
+                    case '6':
+                        globalFiltered.sort( (a,b) => {
+                        let nameA = a.name.toUpperCase();
+                        let nameB = b.name.toUpperCase();
+                        if (nameA < nameB) {
+                            return 1;
+                        }
+                        if (nameA > nameB) {
+                            return -1;
+                        }
+                        return 0;
+                        })
+                        populateAds(globalFiltered);
+                        break;
+                }
+            })
+        })
+    }
+
+    order();
+    
     populatePriceFilter();
     populateCategoriesFilter();
 
