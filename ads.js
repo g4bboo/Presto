@@ -101,7 +101,7 @@ fetch('./annunci.json')
         const inputMax = document.querySelector('#max-input');
         const labelMax = document.querySelector('#max-label');
 
-        let sorted = data.sort( (a,b) => Number(a.price) - Number(b.price));
+        let sorted = Array.from(data).sort( (a,b) => Number(a.price) - Number(b.price));
         let max = sorted[sorted.length - 1].price;
 
         labelMax.innerHTML = max + ' €';
