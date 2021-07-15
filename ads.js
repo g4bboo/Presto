@@ -107,7 +107,6 @@ fetch('./annunci.json')
         labelMax.innerHTML = max + ' €';
         inputMax.max = max;
         inputMax.value = max;
-
     }
 
     function filterByPrice(){
@@ -124,9 +123,27 @@ fetch('./annunci.json')
         })
     }
 
-    populateAds(data);
+    function filterBySearch() {
+        let searchInput = document.querySelector('#search-input');
+
+        searchInput.addEventListener('input', function () {
+
+            let filtered = data.filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()));
+
+            populateAds(filtered);
+        })
+
+    }
+
+
     populatePriceFilter();
     populateCategoriesFilter();
+
     filterByCategory();
     filterByPrice();
+
+    filterBySearch()
+
+    populateAds(data);
+
 })
