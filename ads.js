@@ -2,6 +2,8 @@ fetch('./annunci.json')
 .then( response => response.json())
 .then( data => {
     
+    let globalFiltered = Array.from(data);
+
     function truncate(str) {
         return str.split(' ')[0] + '...';
     }
@@ -76,23 +78,10 @@ fetch('./annunci.json')
     }
 
     function filterByCategory() {
-        let input = document.querySelectorAll('.category-filter')
+        const input = document.querySelectorAll('.category-filter')
 
         input.forEach(el => {
-            el.addEventListener('input', function (){
-               
-                let checked = Array.from(input).filter(el => el.checked).map(el => el.value)
-
-                if(checked.length === 0){
-                    populateAds(data);
-                }else {
-                    let filtered = data.filter(ad => checked.includes(ad.category) )
-                
-                    populateAds(filtered);
-
-                }
-                
-            })
+            el.addEventListener('input', globalFilters)
         })
 
     }
@@ -102,11 +91,13 @@ fetch('./annunci.json')
         const labelMax = document.querySelector('#max-label');
 
         let sorted = Array.from(data).sort( (a,b) => Number(a.price) - Number(b.price));
-        let max = sorted[sorted.length - 1].price;
+        let max = Number(sorted[sorted.length - 1].price);
 
-        labelMax.innerHTML = max + ' €';
+        labelMax.innerHTML = `${max} €`;
         inputMax.max = max;
         inputMax.value = max;
+
+        console.log(max);
     }
 
     function filterByPrice(){
@@ -117,24 +108,41 @@ fetch('./annunci.json')
 
             labelMax.innerHTML = inputMax.value + ' €';
 
-            let filtered = data.filter( ad => ad.price < Number(inputMax.value) && ad.price > 0);
-
-            populateAds(filtered);
+            globalFilters();
+    
         })
     }
 
     function filterBySearch() {
-        let searchInput = document.querySelector('#search-input');
+        const searchInput = document.querySelector('#search-input');
 
-        searchInput.addEventListener('input', function () {
-
-            let filtered = data.filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()));
-
-            populateAds(filtered);
-        })
+        searchInput.addEventListener('input', globalFilters);
 
     }
 
+    function globalFilters() {
+        const searchInput = document.querySelector('#search-input');
+        const inputMax = document.querySelector('#max-input');
+        const categories = document.querySelectorAll('.category-filter');
+
+        let checked = Array.from(categories).filter(el => el.checked).map(el => el.value)
+
+        if(checked.length === 0){
+            globalFiltered = data
+            .filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+            .filter( ad => ad.price <= Number(inputMax.value) + 1 && ad.price > 0)
+
+            populateAds(globalFiltered);
+        }else {
+            globalFiltered = data
+            .filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+            .filter( ad => ad.price <= Number(inputMax.value) + 1 && ad.price > 0)
+            .filter(ad => checked.includes(ad.category))
+            
+            populateAds(globalFiltered);
+        }
+
+    }
 
     populatePriceFilter();
     populateCategoriesFilter();
