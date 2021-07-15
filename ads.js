@@ -129,18 +129,16 @@ fetch('./annunci.json')
             globalFiltered = data
             .filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()))
             .filter( ad => ad.price <= Number(inputMax.value) + 1 && ad.price > 0)
-
-            populateAds(globalFiltered);
-            order();
         }else {
             globalFiltered = data
             .filter( ad => ad.name.toLowerCase().includes(searchInput.value.toLowerCase()))
             .filter( ad => ad.price <= Number(inputMax.value) + 1 && ad.price > 0)
             .filter(ad => checked.includes(ad.category))
-            
-            populateAds(globalFiltered);
-            order();
         }
+
+        populatePagination();
+        order();
+        paginate();
 
     }
 
@@ -152,19 +150,19 @@ fetch('./annunci.json')
                 switch (selected) {
                     case '1':
                         globalFiltered.sort( (a,b) => a.id - b.id);
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '2':
                         globalFiltered.sort( (a,b) => b.id - a.id);
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '3':
                         globalFiltered.sort( (a,b) => Number(a.price) - Number(b.price));
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '4':
                         globalFiltered.sort( (a,b) => Number(b.price) - Number(a.price));
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '5':
                         globalFiltered.sort( (a,b) => {
@@ -178,7 +176,7 @@ fetch('./annunci.json')
                         }
                         return 0;
                         })
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '6':
                         globalFiltered.sort( (a,b) => {
@@ -192,7 +190,7 @@ fetch('./annunci.json')
                         }
                         return 0;
                         })
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                 }
         
@@ -203,19 +201,19 @@ fetch('./annunci.json')
                 switch (selected) {
                     case '1':
                         globalFiltered.sort( (a,b) => a.id - b.id);
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '2':
                         globalFiltered.sort( (a,b) => b.id - a.id);
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '3':
                         globalFiltered.sort( (a,b) => Number(a.price) - Number(b.price));
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '4':
                         globalFiltered.sort( (a,b) => Number(b.price) - Number(a.price));
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '5':
                         globalFiltered.sort( (a,b) => {
@@ -229,7 +227,7 @@ fetch('./annunci.json')
                         }
                         return 0;
                         })
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                     case '6':
                         globalFiltered.sort( (a,b) => {
@@ -243,9 +241,56 @@ fetch('./annunci.json')
                         }
                         return 0;
                         })
-                        populateAds(globalFiltered);
+                        paginate();
                         break;
                 }
+            })
+        })
+    }
+
+    function populatePagination() {
+        let paginator = document.querySelector('#paginator');
+
+        paginator.innerHTML = '';
+
+        let pages = Math.ceil(globalFiltered.length / 6);
+
+        for (let i = 1; i <= pages; i++) {
+            let li = document.createElement('li');
+
+            li.classList.add('page-item');
+
+            if (i === 1) {
+                li.innerHTML = `<a class="page-link pagination-active" value="${i}">${i}</a>`;
+            } else {
+                li.innerHTML = `<a class="page-link" value="${i}">${i}</a>`;
+            }
+
+            paginator.appendChild(li);       
+        }
+
+        clickPaginate();
+    }
+
+    function paginate(selectedPage = 0) {
+        
+        // let selectedPage = 0;
+        let perPage = 6;
+
+        let paginated = globalFiltered.slice( (selectedPage * perPage) , (selectedPage * perPage) + perPage); 
+
+        populateAds(paginated);
+    }
+
+    function clickPaginate() {
+        let pagesBtn = document.querySelectorAll('.page-link');
+
+        pagesBtn.forEach( btn => {
+            btn.addEventListener('click', function () {
+
+                pagesBtn.forEach( btn => btn.classList.remove('pagination-active'));
+                btn.classList.add('pagination-active');
+                paginate(btn.innerHTML - 1);
             })
         })
     }
@@ -260,6 +305,7 @@ fetch('./annunci.json')
 
     filterBySearch()
 
-    populateAds(data);
+    populatePagination();
+    paginate();
 
 })
