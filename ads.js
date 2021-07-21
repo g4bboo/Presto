@@ -295,6 +295,14 @@ fetch('./annunci.json')
         })
     }
 
+    function resetFilter() {
+        let resetBtn = document.querySelector('#reset-filter');
+
+        resetBtn.addEventListener('click', function () {
+            
+        })
+    }
+
     order();
     
     populatePriceFilter();
@@ -307,5 +315,7 @@ fetch('./annunci.json')
 
     populatePagination();
     paginate();
+
+    resetFilter();
 
 })
